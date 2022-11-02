@@ -1,0 +1,17 @@
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerUI.exe
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerUI.deps.json
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerUI.runtimeconfig.json
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerUI.dll
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerUI.pdb
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.csproj.AssemblyReference.cache
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.TournamentViewerForm.resources
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.csproj.GenerateResource.cache
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.GeneratedMSBuildEditorConfig.editorconfig
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.AssemblyInfoInputs.cache
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.AssemblyInfo.cs
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.csproj.CoreCompileInputs.cache
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.dll
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\refint\TrackerUI.dll
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.pdb
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.genruntimeconfig.cache
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\ref\TrackerUI.dll
