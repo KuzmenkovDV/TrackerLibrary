@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qSPqC425MtGcTxNqwpwBsZf9Jatm5jXRW1ta65qiSanZlO2E+u9+3H6ClzrAGFwwKbOX0homJvNRKuLADLnQ6g==",
+  "dgSpecHash": "bXfRmbc3+RmZsgGQo0HgITrnUgL5t/yLp7jIgOd6vnSkAArQz0ntO1EwFbn/eri3CiiGFsZ8c1zc/c/gjrzKjw==",
   "success": true,
-  "projectFilePath": "E:\\02_GIT\\TrackerLibrary\\CreateTournamentForm\\CreateTournamentForm.csproj",
+  "projectFilePath": "E:\\02_GIT\\TrackerLibrary\\TrackerLibrary\\TrackerLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
