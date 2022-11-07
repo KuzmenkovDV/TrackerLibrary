@@ -11,9 +11,14 @@ namespace TrackerLibrary
     /// </summary>
     public class MatchupModel
     {
-       /// <summary>
-       /// The set of teams that were involved in this match
-       /// </summary>
+        /// <summary>
+        /// The unique identifier number for storage
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The set of teams that were involved in this match
+        /// </summary>
         public List<MatchupEntryModel> Entrries { get; set } = new List<MatchupEntryModel>();
         /// <summary>
         /// The team that won the match
