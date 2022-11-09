@@ -13,7 +13,7 @@ namespace TrackerLibrary
         { 
             if (sqlStorage)
             {
-                //TODO - create SQL connection
+                //TODO - create SQL connection properly
                 SqlConnector sql = new SqlConnector();
                 Connections.Add(sql); 
             }
@@ -21,6 +21,8 @@ namespace TrackerLibrary
             if (txtStorage)
             {
                 //TODO - create txt connection
+                TxtConnector txt = new TxtConnector();
+                Connections.Add(txt);
             }
         }
     }

@@ -8,5 +8,13 @@ namespace TrackerLibrary
 {
     public class TxtConnector : IDataConnection
     {
+        //TODO - create an actual method
+        public PrizeModel CreatePrize(PrizeModel model)
+        {
+            
+            model.Id = 1;
+
+            return model;  
+        }
     }
 }
