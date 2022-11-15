@@ -32,5 +32,17 @@ namespace TrackerLibrary
         /// Prize amount in percentages from 0 to 100
         /// </summary>
         public double PricePercentage { get; set; }
+
+        public PrizeModel()
+        {
+
+        }
+        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        {
+            this.PlaceName = placeName;
+            this.PlaceNumber = int.Parse(placeNumber);
+            this.PrizeAmount = decimal.Parse(prizeAmount);
+            this.PricePercentage = double.Parse(prizePercentage);
+        }
     }
 }

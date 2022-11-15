@@ -3,3 +3,10 @@ E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\TrackerLibrary.Generate
 E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\TrackerLibrary.AssemblyInfoInputs.cache
 E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\TrackerLibrary.AssemblyInfo.cs
 E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\TrackerLibrary.csproj.CoreCompileInputs.cache
+E:\02_GIT\TrackerLibrary\TrackerLibrary\bin\Debug\net6.0\TrackerLibrary.deps.json
+E:\02_GIT\TrackerLibrary\TrackerLibrary\bin\Debug\net6.0\TrackerLibrary.dll
+E:\02_GIT\TrackerLibrary\TrackerLibrary\bin\Debug\net6.0\TrackerLibrary.pdb
+E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\TrackerLibrary.dll
+E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\refint\TrackerLibrary.dll
+E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\TrackerLibrary.pdb
+E:\02_GIT\TrackerLibrary\TrackerLibrary\obj\Debug\net6.0\ref\TrackerLibrary.dll

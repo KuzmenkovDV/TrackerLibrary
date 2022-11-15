@@ -19,3 +19,6 @@ E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.CreatePriz
 E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.CreateTeamForm.resources
 E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.CreateTournamentForm.resources
 E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.TournamentDashBoardForm.resources
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerLibrary.dll
+E:\02_GIT\TrackerLibrary\TrackerUI\bin\Debug\net6.0-windows\TrackerLibrary.pdb
+E:\02_GIT\TrackerLibrary\TrackerUI\obj\Debug\net6.0-windows\TrackerUI.csproj.CopyComplete
