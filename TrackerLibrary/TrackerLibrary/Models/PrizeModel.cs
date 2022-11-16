@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.Models
 {
     public class PrizeModel
     {
@@ -39,10 +39,10 @@ namespace TrackerLibrary
         }
         public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
         {
-            this.PlaceName = placeName;
-            this.PlaceNumber = int.Parse(placeNumber);
-            this.PrizeAmount = decimal.Parse(prizeAmount);
-            this.PricePercentage = double.Parse(prizePercentage);
+            PlaceName = placeName;
+            PlaceNumber = int.Parse(placeNumber);
+            PrizeAmount = decimal.Parse(prizeAmount);
+            PricePercentage = double.Parse(prizePercentage);
         }
     }
 }

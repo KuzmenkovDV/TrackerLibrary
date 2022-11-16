@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackerLibrary;
+using TrackerLibrary.DataAccess;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -32,13 +34,13 @@ namespace TrackerUI
                     db.CreatePrize(model);
                 }
                 placeNumberValue.Text = "";
-                placeNumberValue.Text = "";
+                placeNameValue.Text = "";
                 prizeAmountValue.Text = "0";
                 prizePercentageValue.Text = "0";
             }
             else
             {
-                MessageBox.Show("This form has invalid information. Place check it and try again");
+                MessageBox.Show("This data can not be stored. Please, refill and try again");
             }
         }
 
@@ -54,20 +56,20 @@ namespace TrackerUI
             if (!placeNumberValidNumber)
             {
                 output = false;
-                errorMessage += "Invalid format of number value/n";
+                errorMessage += "Invalid format of number value\n";
             }
 
-            if (placeNumber < 1)
+            if (placeNumber < 0)
             { 
                 output = false;
-                errorMessage+="Number value can not be less then 1/n";
+                errorMessage+="Number value can not be less then 1\n";
             }
 
             //Validate place name
             if (placeNameValue.TextLength == 0)
             {
                 output = false;
-                errorMessage="Place name can not be empty/n";                
+                errorMessage="Place name can not be empty\n";                
             }
 
             //Validate prizes
@@ -80,18 +82,18 @@ namespace TrackerUI
             if (!prizeAmountValidNumber && !prizePercentageValidNumber)
             {
                 output=false;
-                errorMessage=($"Invalid data. You have entered prize amount as {prizeAmount} and prize percentage as {prizePercentage}. Input one of them correctly/n");
+                errorMessage=($"Invalid data.\nYou have entered prize amount as {prizeAmount} and prize percentage as {prizePercentage}.\nInput one of them correctly\n");
             }
 
             if ((prizeAmount <= 0 && prizePercentage <= 0) || prizePercentage > 100)
             {
                 output = false;
-                errorMessage+=("Amount can not be equal or less then 0. Percentage shoud be between 0 and 100");
+                errorMessage+=("Amount can not be equal or less then 0.\nPercentage shoud be between 0 and 100");
             }
 
 
             if (!output)
-                throw new Exception(errorMessage);
+                MessageBox.Show(errorMessage);          
             return output;
 
         }

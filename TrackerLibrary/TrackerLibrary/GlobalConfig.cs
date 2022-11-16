@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using TrackerLibrary.DataAccess;
 
 namespace TrackerLibrary
 {
@@ -24,6 +26,10 @@ namespace TrackerLibrary
                 TxtConnector txt = new TxtConnector();
                 Connections.Add(txt);
             }
+        }
+        public static string CnnString (string name)
+        {
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
     }
 }
