@@ -21,7 +21,7 @@ namespace TrackerUI
         }
 
         private void createPrizeButton_Click(object sender, EventArgs e)
-        {            
+        {
             if (ValidateData())
             {
                 PrizeModel model = new PrizeModel(
@@ -60,16 +60,16 @@ namespace TrackerUI
             }
 
             if (placeNumber < 0)
-            { 
+            {
                 output = false;
-                errorMessage+="Number value can not be less then 1\n";
+                errorMessage += "Number value can not be less then 1\n";
             }
 
             //Validate place name
             if (placeNameValue.TextLength == 0)
             {
                 output = false;
-                errorMessage="Place name can not be empty\n";                
+                errorMessage = "Place name can not be empty\n";
             }
 
             //Validate prizes
@@ -81,27 +81,27 @@ namespace TrackerUI
 
             if (!prizeAmountValidNumber && !prizePercentageValidNumber)
             {
-                output=false;
-                errorMessage=($"Invalid data.\nYou have entered prize amount as {prizeAmount} and prize percentage as {prizePercentage}.\nInput one of them correctly\n");
+                output = false;
+                errorMessage = ($"Invalid data.\nYou have entered prize amount as {prizeAmount} and prize percentage as {prizePercentage}.\nInput one of them correctly\n");
             }
 
             if ((prizeAmount <= 0 && prizePercentage <= 0) || prizePercentage > 100)
             {
                 output = false;
-                errorMessage+=("Amount can not be equal or less then 0.\nPercentage shoud be between 0 and 100");
+                errorMessage += ("Amount can not be equal or less then 0.\nPercentage shoud be between 0 and 100");
             }
 
 
             if (!output)
-                MessageBox.Show(errorMessage);          
+                MessageBox.Show(errorMessage);
             return output;
 
         }
 
         private void prizeAmountValue_TextChanged(object sender, EventArgs e)
         {
-            if (prizeAmountValue.Text.Length != 0 && prizeAmountValue.Text !="0")
-            { 
+            if (prizeAmountValue.Text.Length != 0 && prizeAmountValue.Text != "0")
+            {
                 prizePercentageValue.Text = "0";
                 prizePercentageValue.Enabled = false;
             }
