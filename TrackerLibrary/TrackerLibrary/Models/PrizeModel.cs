@@ -37,8 +37,9 @@ namespace TrackerLibrary.Models
         {
 
         }
-        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        public PrizeModel(string placeNumber, string placeName, string prizeAmount, string prizePercentage)
         {
+            
             PlaceName = placeName;
             PlaceNumber = int.Parse(placeNumber);
             PrizeAmount = decimal.Parse(prizeAmount);
