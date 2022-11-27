@@ -9,7 +9,7 @@ using Dapper;
 
 namespace TrackerLibrary.DataAccess
 {
-    
+
     public class SqlConnector : IDataConnection
     {
         private const string db = "Tournaments";
@@ -38,7 +38,7 @@ namespace TrackerLibrary.DataAccess
             }
         }
 
-        
+
         /// <summary>
         /// Saves a new prize to a SQL database
         /// </summary>
@@ -80,7 +80,7 @@ namespace TrackerLibrary.DataAccess
                     p = new DynamicParameters();
                     p.Add("@TeamId", model.Id);
                     p.Add("@PersonId", tmp.Id);
-                                        
+
                     connection.Execute("dbo.spTeamMembers_Insert", p, commandType: CommandType.StoredProcedure);
                 }
 
@@ -94,6 +94,16 @@ namespace TrackerLibrary.DataAccess
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
+            }
+            return output;
+        }
+
+        public List<TeamModel> GetTeams_All()
+        {
+            List<TeamModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<TeamModel>("dbo.spTeams_GetAll").ToList();
             }
             return output;
         }
