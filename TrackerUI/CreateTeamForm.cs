@@ -13,14 +13,18 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class CreateTeamForm : Form
+    public partial class CreateTeamForm : Form, ITeamRequester
     {
         private List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
         private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
 
-        public CreateTeamForm()
+        private ITeamRequester callingForm;
+
+        public CreateTeamForm(ITeamRequester caller)
         {
             InitializeComponent();
+
+            callingForm = caller;
 
             //CreateSampleData();
 
@@ -155,13 +159,20 @@ namespace TrackerUI
             {
                 t = GlobalConfig.Connection.CreateTeam(t);
                 MessageBox.Show("Team successfully created");
+                callingForm.TeamComplete(t);
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Name is empty or/and no members are on the list");
             }
 
-            //TODO - if aren't closing after creation, then we need to reset the form
+            
+        }
+
+        public void TeamComplete(TeamModel model)
+        {
+                      
         }
     }
 }

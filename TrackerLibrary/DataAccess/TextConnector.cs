@@ -24,7 +24,7 @@ namespace TrackerLibrary.DataAccess
 
             int currentId = 1;
             if (persons.Count > 0)
-                currentId = persons.OrderByDescending(p => p.Id).First().Id+1;
+                currentId = persons.OrderByDescending(p => p.Id).First().Id + 1;
 
             model.Id = currentId;
             currentId += 1;
@@ -35,7 +35,7 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
-        //TODO - create an actual methods for all the 
+
         public PrizeModel CreatePrize(PrizeModel model)
         {
             //Load the text file
@@ -84,7 +84,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeams_All()
         {
-            throw new NotImplementedException();
+            return TeamFile.FullFilePath().LoadFile().ConvertToTeamModel(PersonFile);
         }
     }
 }

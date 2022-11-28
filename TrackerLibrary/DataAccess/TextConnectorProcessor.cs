@@ -82,8 +82,9 @@ namespace TrackerLibrary.DataAccess.TextAccessSubmodul
                 foreach (string id in personIds)
                 {
                     t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
+                    
                 }
-
+                output.Add(t);
             }
 
             return output;
