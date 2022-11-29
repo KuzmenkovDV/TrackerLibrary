@@ -29,10 +29,13 @@ namespace TrackerUI
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
             //Create tournament model
-
+            
 
             if (TournamentInformationIsValid())
             {
+                //Create all of the prizes entries
+                //Create all of the team entries
+                //Create the matchups
                 TournamentModel tm = new TournamentModel()
                 {
                     TournamentName = tournamentNameValue.Text,
@@ -40,17 +43,11 @@ namespace TrackerUI
                     Prizes = selectedPrizes,
                     EnteredTeams = selectedTeams
                 };
+                GlobalConfig.Connection.CreateTournament(tm);
                 
             }
             else
-                MessageBox.Show("The entered information was not valid. Transaction can not be done");
-
-
-            //Create all of the prizes entries
-
-            //Create all of the team entries
-
-            //Create the matchups
+                MessageBox.Show("The entered information was not valid. Transaction can not be done");                                    
         }
 
 

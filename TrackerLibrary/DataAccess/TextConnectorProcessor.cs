@@ -44,7 +44,7 @@ namespace TrackerLibrary.DataAccess.TextAccessSubmodul
             }
             return output;
         }
-        public static List<PersonModel> ConvertToPersonModel(this List<string> lines)
+        public static List<PersonModel> ConvertToPersonModels(this List<string> lines)
         {
             List<PersonModel> output = new List<PersonModel>();
             foreach (string line in lines)
@@ -59,14 +59,14 @@ namespace TrackerLibrary.DataAccess.TextAccessSubmodul
                     EmailAdress = cols[3],
                     CellphoneNumber = cols[4]
                 };
-            output.Add(p);
+                output.Add(p);
             }
             return output;
         }
-        public static List<TeamModel> ConvertToTeamModel(this List<string> lines, string peopleFileName)
+        public static List<TeamModel> ConvertToTeamModels(this List<string> lines, string peopleFileName)
         {
             List<TeamModel> output = new List<TeamModel>();
-            List<PersonModel> people = peopleFileName.FullFilePath().LoadFile().ConvertToPersonModel();
+            List<PersonModel> people = peopleFileName.FullFilePath().LoadFile().ConvertToPersonModels();
 
             foreach (string line in lines)
             {
@@ -75,17 +75,64 @@ namespace TrackerLibrary.DataAccess.TextAccessSubmodul
                 TeamModel t = new TeamModel()
                 {
                     Id = int.Parse(cols[0]),
-                    TeamName = cols[1]                    
+                    TeamName = cols[1]
                 };
                 string[] personIds = cols[2].Split('|');
 
                 foreach (string id in personIds)
                 {
                     t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
-                    
+
                 }
                 output.Add(t);
             }
+
+            return output;
+        }
+        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines,
+            string teamFileName,
+            string peopleFileName,
+            string prizeFileName)
+        {
+            //id,TournamentName,EntryFee,(id|id|id - Entered Teams),(id|id|id - Prizes),(Rounds - id^id^id|id^id^id)
+            List<TournamentModel> output = new List<TournamentModel>();
+            List<TeamModel> teams = teamFileName
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTeamModels(peopleFileName);
+            List<PrizeModel> prizes = prizeFileName
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToPrizeModels();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+                TournamentModel tm = new TournamentModel()
+                {
+                    Id = int.Parse(cols[0]),
+                    TournamentName = cols[1],
+                    EntryFee = decimal.Parse(cols[2])
+                };
+
+                //Load teams by Ids
+                string[] teamIds = cols[3].Split('|');
+                foreach (string id in teamIds)
+                {                   
+                   tm.EnteredTeams.Add(teams.Where(x => x.Id == int.Parse(id)).First());
+                }
+
+                //Load prizes by Ids
+                string[] prizesIds = cols[4].Split('|');
+                foreach (string id in prizesIds)
+                {
+                    tm.Prizes.Add(prizes.Where(x => x.Id == int.Parse(id)).First());
+                }
+
+                //TODO - Rounds!
+
+            }
+
 
             return output;
         }
@@ -116,16 +163,16 @@ namespace TrackerLibrary.DataAccess.TextAccessSubmodul
             List<string> lines = new List<string>();
             foreach (TeamModel t in models)
             {
-                lines.Add($"{ t.Id },{ t.TeamName },{ ConvertPeopleListToString(t.TeamMembers) }");
+                lines.Add($"{t.Id},{t.TeamName},{ConvertPeopleListToString(t.TeamMembers)}");
             }
             File.WriteAllLines(filename.FullFilePath(), lines);
         }
 
-        private static string ConvertPeopleListToString (List<PersonModel> people)
+        private static string ConvertPeopleListToString(List<PersonModel> people)
         {
             string output = "";
 
-            if (people.Count ==0) return output;
+            if (people.Count == 0) return output;
 
             foreach (PersonModel person in people)
             {
