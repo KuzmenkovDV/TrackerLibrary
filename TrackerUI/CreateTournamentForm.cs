@@ -15,7 +15,7 @@ namespace TrackerUI
     public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
     {
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeams_All();
-        List<TeamModel> selectedTeams = new List<TeamModel>(); 
+        List<TeamModel> selectedTeams = new List<TeamModel>();
 
         List<PrizeModel> selectedPrizes = new List<PrizeModel>();
 
@@ -28,7 +28,29 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
+            //Create tournament model
 
+
+            if (TournamentInformationIsValid())
+            {
+                TournamentModel tm = new TournamentModel()
+                {
+                    TournamentName = tournamentNameValue.Text,
+                    EntryFee = Decimal.Parse(entryFeeValue.Text),  
+                    Prizes = selectedPrizes,
+                    EnteredTeams = selectedTeams
+                };
+                
+            }
+            else
+                MessageBox.Show("The entered information was not valid. Transaction can not be done");
+
+
+            //Create all of the prizes entries
+
+            //Create all of the team entries
+
+            //Create the matchups
         }
 
 
@@ -77,7 +99,7 @@ namespace TrackerUI
         {
             //Call the create prize form
             CreatePrizeForm frm = new CreatePrizeForm(this);
-            frm.Show();                        
+            frm.Show();
         }
 
         public void PrizeComplete(PrizeModel model)
@@ -99,7 +121,7 @@ namespace TrackerUI
         private void createTeamLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CreateTeamForm frm = new CreateTeamForm(this);
-            frm.Show();           
+            frm.Show();
         }
 
         private void removeSelectedPrizeButton_Click(object sender, EventArgs e)
@@ -108,10 +130,52 @@ namespace TrackerUI
 
             if (p != null)
             {
-                selectedPrizes.Remove(p);                
+                selectedPrizes.Remove(p);
 
                 WireUpTheLists();
             }
+
+        }
+
+        private bool TournamentInformationIsValid()
+        {
+            bool output = true;
+            string errorMessage = "";
+            decimal entryFee = 0;
+
+
+            if (tournamentNameValue.Text.Length == 0)
+            {
+                output = false;
+                errorMessage += "Tournament name could not be empty\n";
+            }
+
+            //Check entry fee
+            bool entryFeeIsValid = decimal.TryParse(entryFeeValue.Text, out entryFee);
+            if ((!entryFeeIsValid)||(entryFee<0))
+            {
+                output = false;
+                errorMessage += "Please enter the correct value for entry fee\n";
+            }
+
+
+            //Validate prizes and teams
+            if (selectedPrizes.Count == 0)
+            {
+                output = false;
+                errorMessage += "Please select prizes\n";
+            }
+            if (selectedTeams.Count == 0)
+            {
+                output = false;
+                errorMessage += "Please select teams\n";
+            }
+
+
+            if (!output)
+                MessageBox.Show(errorMessage);
+
+            return output;
 
         }
     }
