@@ -36,6 +36,7 @@ namespace TrackerUI
                 //Create all of the prizes entries
                 //Create all of the team entries
                 //Create the matchups
+                //TODO - wire up the matchups!
                 TournamentModel tm = new TournamentModel()
                 {
                     TournamentName = tournamentNameValue.Text,
